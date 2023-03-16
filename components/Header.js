@@ -18,10 +18,13 @@ const Header = () => {
                     <Image className='w-30 h-30' source={{ uri: 'assets:/logo-social.png' }} />
                 </TouchableOpacity>
                 <View>
-                    <TouchableOpacity className='flex flex-row justify-between items-center'>
+                    <TouchableOpacity className='flex flex-row justify-between items-center space-x-1'>
                         <ShoppingBagIcon color='gray' />
                         <Text>
-                            Giỏ hàng/ 0đ
+                            Giỏ hàng/
+                        </Text>
+                        <Text className='font-bold'>
+                            0đ
                         </Text>
                     </TouchableOpacity>
                 </View>

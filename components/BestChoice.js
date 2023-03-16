@@ -30,14 +30,13 @@ const banners = [
 
 const BestChoice = () => {
     return (
-        <View>
+        <View className='flex flex-row items-center space-x-2 p-4'>
+            <View className='h-1 flex-1 bg-gray-400' />
             <View>
-                <Text className='text-center'>SỰ LỰA CHỌN TỐT NHẤT CHO BẠN</Text>
+                <Text className='text-center font-bold'>SỰ LỰA CHỌN TỐT NHẤT CHO BẠN</Text>
             </View>
-            <View>
-            </View>
+            <View className='h-1 flex-1 bg-gray-400' />
         </View>
     )
 }
-
 export default BestChoice

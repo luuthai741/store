@@ -1,11 +1,18 @@
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
-
+import { HeartIcon } from "react-native-heroicons/solid";
 const HotCategories = () => {
     return (
         <View className='mt-2'>
-            <View>
-                <Text className='text-center font-bold'>DANH MỤC NỔI BẬT</Text>
+            <View className='flex flex-row items-center space-x-2 p-4'>
+                <View className='h-1 flex-1 bg-gray-400' />
+                <View className='flex flex-row justify-center items-center space-x-2'>
+                    <HeartIcon color='gray' size={26} />
+                    <Text className='text-center font-bold'>
+                        DANH MỤC NỔI BẬT
+                    </Text>
+                </View>
+                <View className='h-1 flex-1 bg-gray-400' />
             </View>
             <View className='flex p-4 space-y-2' >
                 <TouchableOpacity>

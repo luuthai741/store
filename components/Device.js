@@ -1,7 +1,8 @@
-import { View, Text } from 'react-native'
-import React, { useState } from 'react'
+import { View, Text, ScrollView } from 'react-native'
+import React, { useEffect, useState } from 'react'
 import Node from './Node';
 import GeneralCard from './GeneralCard';
+import SeeMoreButton from './SeeMoreButton';
 let deviceCategories = [
     {
         id: 1,
@@ -24,16 +25,33 @@ let devices = [
     {
         id: 1,
         title: 'PRODUCT A',
-        rating: 4.5
+        rating: 3,
+        discountPercent: 4,
+        price: 1200000,
+        imageUrl: 'https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        categoryId: 1
     },
     {
         id: 2,
         title: 'PRODUCT B',
-        rating: 4
+        rating: 4,
+        discountPercent: 0,
+        price: 1200000,
+        imageUrl: 'https://images.pexels.com/photos/821651/pexels-photo-821651.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        categoryId: 2
     },
 ]
+
+
 const Device = () => {
     const [isSelectedDevice, setIsSelectedDevice] = useState(null);
+    const [devicesSelected, setDevicesSelected] = useState([]);
+
+    useEffect(() => {
+        let newDevices = devices.filter(device => device.categoryId == isSelectedDevice);
+        setDevicesSelected(newDevices);
+    }, [isSelectedDevice])
+
     return (
         <View>
             <Text className='text-center font-bold'>THIẾT BỊ (BỘ DỤNG CỤ)</Text>
@@ -43,10 +61,13 @@ const Device = () => {
                 })}
             </View >
             <View className='flex flex-row p-4'>
-                {devices.map(device => {
-                    return <GeneralCard data={device} />
-                })}
+                <ScrollView horizontal accessible showsHorizontalScrollIndicator={false}>
+                    {devicesSelected.map(device => {
+                        return <GeneralCard key={device.id} data={device} />
+                    })}
+                </ScrollView>
             </View>
+            <SeeMoreButton pageName={'Home'} />
         </View >
     )
 }
