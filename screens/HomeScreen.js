@@ -10,6 +10,7 @@ import Brands from '../components/Brands'
 import PreferentialInfo from '../components/PreferentialInfo'
 import Blogs from '../components/Blogs'
 import Footer from '../components/Footer'
+
 const HomeScreen = () => {
     console.log("re-render");
     return (

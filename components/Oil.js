@@ -133,7 +133,7 @@ const Oil = () => {
             <View className='flex flex-row p-4'>
                 <ScrollView horizontal accessible showsHorizontalScrollIndicator={false}>
                     {oilsSelected.map(oil => {
-                        return <GeneralCard key={oid.id} data={oil} />
+                        return <GeneralCard key={oil.id} data={oil} />
                     })}
                 </ScrollView>
             </View>

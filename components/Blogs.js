@@ -9,7 +9,7 @@ const blogs = [
     {
         id: 1,
         title: '7 sản phẩm giá tốt, bán chạy nhất 2023',
-        createDate: '2023-24-02',
+        createDate: '2023-02-24',
         description: '7 sản phẩm giá tốt, bán chạy nhất 2023. Hiện nay các ....'
     },
     {
@@ -21,7 +21,7 @@ const blogs = [
     {
         id: 3,
         title: 'Shop mới khai trương ở Đà Lạt',
-        createDate: '2022-20-12',
+        createDate: '2022-12-20',
         description: 'Nhân dịp khai trương chi nhánh mới ở Đà Lạt. Chúng tôi ....'
     },
     {
@@ -42,7 +42,7 @@ const Blogs = () => {
                 {
                     blogs.map(blog => {
                         return (
-                            <TouchableOpacity key={blog.id} className='justify-center h-[20vh] w-[90vw] border-1 items-center mt-6 p-4 shadow-lg'>
+                            <TouchableOpacity key={blog.id} className='justify-center h-[20vh] w-[90vw] border-1 items-center mt-6 p-4'>
                                 <Text className='font-bold'>{blog.title}</Text>
                                 <Text >{dateFormatter(blog.createDate)}</Text>
                                 <Text>{blog.description}

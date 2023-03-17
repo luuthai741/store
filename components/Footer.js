@@ -7,7 +7,7 @@ import Note from './Note'
 
 const Footer = () => {
     return (
-        <View className='mt-20 p-4 space-y-5'>
+        <View className='mt-20 p-4 flex flex-col'>
             <Supports />
             <Infos />
             <Map />

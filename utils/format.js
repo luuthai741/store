@@ -1,5 +1,6 @@
 import { formatCurrency } from "react-native-format-currency";
 import moment from "moment";
+import "moment/min/locales";
 
 export const currencyFormatter = (amount) => {
     const [valueFormattedWithSymbol] =
@@ -7,7 +8,7 @@ export const currencyFormatter = (amount) => {
     return valueFormattedWithSymbol;
 }
 export const dateFormatter = (date) => {
-    let newDate = moment("date", 'YYYY-MM-DD').format('MMM Do YY').locale('VI');
-    console.log(newDate);
-    return date;
+    moment.locale('VI');
+    let newDate = moment(date, 'YYYY-MM-DD').format('MMM Do YY');
+    return newDate;
 }
