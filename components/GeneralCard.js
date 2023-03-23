@@ -19,7 +19,7 @@ const showRating = rating => {
 
 const GeneralCard = ({ data }) => {
     return (
-        <View className='flex-1 flex justify-center items-center'>
+        <View className='justify-center items-center'>
             <TouchableOpacity className='relative flex justify-center'>
                 {data.discountPercent > 0 ? (
                     <View className='absolute flex justify-center items-center z-10 bg-red-500 w-10 h-10 rounded-full'>
@@ -35,7 +35,7 @@ const GeneralCard = ({ data }) => {
             <View className='flex flex-row'>
                 {showRating(data?.rating)}
             </View>
-            <Text className='text-center'>{data?.title}</Text>
+            <Text className='text-center text-blue-400'>{data?.title}</Text>
             <View className='flex flex-row space-x-2'>
                 {data.discountPercent > 0 ? (
                     <>
@@ -57,5 +57,4 @@ const GeneralCard = ({ data }) => {
         </View>
     )
 }
-
 export default GeneralCard

@@ -42,7 +42,7 @@ const Blogs = () => {
                 {
                     blogs.map(blog => {
                         return (
-                            <TouchableOpacity key={blog.id} className='justify-center h-[20vh] w-[90vw] border-1 items-center mt-6 p-4'>
+                            <TouchableOpacity key={blog.id} className='justify-center h-[20vh] w-[90vw] border-1 items-center mt-6 p-4 bg-white shadow-md'>
                                 <Text className='font-bold'>{blog.title}</Text>
                                 <Text >{dateFormatter(blog.createDate)}</Text>
                                 <Text>{blog.description}
@@ -52,7 +52,7 @@ const Blogs = () => {
                     })
                 }
             </View>
-            <TouchableOpacity className='justify-center items-center' onPress={() => navigation.navigate('Home')}>
+            <TouchableOpacity className='justify-center items-center mt-2' onPress={() => navigation.navigate('Home')}>
                 <View className='justify-center items-center' style={styles.borderButton}>
                     <Text>XEM BLOG</Text>
                 </View>
@@ -66,6 +66,6 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         width: 200,
         height: 50
-    },
+    }
 });
 export default Blogs

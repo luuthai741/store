@@ -2,7 +2,9 @@ import { View, Text, Image } from 'react-native'
 import React from 'react'
 import { Bars3Icon, ShoppingBagIcon } from "react-native-heroicons/solid";
 import { TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 const Header = () => {
+    const navigation = useNavigation();
     return (
         <View>
             <View className='py-2 bg-black'>
@@ -11,7 +13,7 @@ const Header = () => {
                 </Text>
             </View>
             <View className='flex flex-row justify-between items-center p-4'>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.openDrawer()}>
                     <Bars3Icon size={30} color='gray' />
                 </TouchableOpacity>
                 <TouchableOpacity>
