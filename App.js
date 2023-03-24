@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { HOME_ROUTE, NEW_ROUTE, PREFERENTIAL_ROUTE } from './constraints/routes'
+import { HOME_ROUTE, NEW_ROUTE, PREFERENTIAL_ROUTE, PRODUCT_ROUTE } from './constraints/routes'
 
 const Drawer = createDrawerNavigator();
 export default function App() {
@@ -15,6 +15,9 @@ export default function App() {
           headerShown: false
         }} />
         <Drawer.Screen name={PREFERENTIAL_ROUTE.name} component={PREFERENTIAL_ROUTE.component} options={{
+          headerShown: false
+        }} />
+        <Drawer.Screen name={PRODUCT_ROUTE.name} component={PRODUCT_ROUTE.component} options={{
           headerShown: false
         }} />
       </Drawer.Navigator>

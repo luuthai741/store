@@ -42,7 +42,7 @@ const Blogs = () => {
                 {
                     blogs.map(blog => {
                         return (
-                            <TouchableOpacity key={blog.id} className='justify-center h-[20vh] w-[90vw] border-1 items-center mt-6 p-4 bg-white shadow-md'>
+                            <TouchableOpacity style={styles.blogShadow} key={blog.id} className='justify-center h-[20vh] w-[90vw] border-1 items-center mt-6 p-4 bg-white'>
                                 <Text className='font-bold'>{blog.title}</Text>
                                 <Text >{dateFormatter(blog.createDate)}</Text>
                                 <Text>{blog.description}
@@ -66,6 +66,16 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         width: 200,
         height: 50
+    },
+    blogShadow: {
+        shadowColor: 'black',
+        shadowOffset: {
+            width: 0,
+            height: 10,
+        },
+        shadowOpacity: 0.6,
+        shadowRadius: 16.00,
+        elevation: 12,
     }
 });
 export default Blogs

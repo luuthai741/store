@@ -2,6 +2,9 @@ import { View, Text, StyleSheet } from 'react-native'
 import React, { useState } from 'react'
 import { AdjustmentsHorizontalIcon } from "react-native-heroicons/solid";
 import SelectDropdown from 'react-native-select-dropdown'
+import { useNavigation } from '@react-navigation/native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { HOME_ROUTE } from '../constraints/routes';
 
 const sorts = [
     {
@@ -29,13 +32,15 @@ const sorts = [
         "value": 6
     },
 ]
-const Title = ({ title }) => {
-    const [sort, setSort] = useState(1);
+const Title = ({ title, sort, setSort }) => {
+    const navigation = useNavigation()
     return (
-        <View className='justify-center items-center bg-black h-[20vh] w-[100vw] space-y-2'>
+        <View className='justify-center items-center bg-black h-[30vh] w-[100vw] space-y-2'>
             <Text className='text-white text-3xl font-bold'>{title}</Text>
             <View className='flex-row'>
-                <Text className='text-white text-lg'>Trang Chủ / </Text>
+                <TouchableOpacity onPress={() => { navigation.navigate(HOME_ROUTE.name) }}>
+                    <Text className='text-white text-lg'>Trang Chủ / </Text>
+                </TouchableOpacity>
                 <Text className='text-white text-lg font-bold'>{title}</Text>
             </View>
             <View className='flex-row'>
