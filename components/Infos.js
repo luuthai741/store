@@ -42,7 +42,7 @@ const Infos = () => {
                     infos.map(info => {
                         return (
                             <TouchableOpacity key={info.id} style={styles.underLine}>
-                                <Text className='text-blue-500 text-lg'>
+                                <Text className='text-blue-500' style={{ fontSize: 16 }}>
                                     {info.title}
                                 </Text>
                             </TouchableOpacity>

@@ -3,8 +3,7 @@ import React, { useState } from 'react'
 import { TouchableOpacity } from 'react-native'
 import { currencyFormatter, dateFormatter, showRating } from '../utils/format'
 import { GlobeAltIcon, CheckBadgeIcon, FlagIcon, ArrowPathIcon, ArrowsRightLeftIcon } from "react-native-heroicons/solid";
-import { TextInput } from 'react-native';
-import { width } from 'deprecated-react-native-prop-types/DeprecatedImagePropType';
+import ProductDetailCommentForm from './ProductDetailCommentForm';
 
 const showColorsText = (colors) => {
     if (!colors || colors.length <= 0) {
@@ -28,7 +27,7 @@ const showComment = (comments) => {
     }
     return comments.map((comment) => {
         return (
-            <View>
+            <View key={comment.id}>
                 <View className='flex-row p-4 space-x-4'>
                     <View style={{ width: '30%' }}>
                         <Image className='w-16 h-16 rounded-full' source={{
@@ -59,16 +58,16 @@ const ProductDetailDescription = ({ product }) => {
     const [activeDescription, setActiveDescription] = useState(0);
     return (
         <View className=''>
-            <TouchableOpacity className='bg-gray-100 justify-center' style={[styles.descriptionButton, activeDescription != 0 ? { borderTopColor: 'gray', borderTopWidth: 2 } : null, activeDescription == 0 ? styles.activeButtonBorder : null]} onPress={() => setActiveDescription(0)}>
+            <TouchableOpacity className='justify-center' style={[styles.descriptionButton, activeDescription != 0 ? styles.topDescription : null, activeDescription == 0 ? styles.activeButtonBorder : styles.noneActiveButton, activeDescription - 1 == 0 ? styles.hiddenBotDescription : null]} onPress={() => setActiveDescription(0)}>
                 <Text className='pl-4'>MÔ TẢ</Text>
             </TouchableOpacity>
-            <TouchableOpacity className='bg-gray-200 justify-center' style={[styles.descriptionButton, activeDescription == 1 ? styles.activeButtonBorder : null]} onPress={() => setActiveDescription(1)}>
+            <TouchableOpacity className='justify-center' style={[styles.descriptionButton, activeDescription == 1 ? styles.activeButtonBorder : styles.noneActiveButton, activeDescription - 1 == 1 ? styles.hiddenBotDescription : null]} onPress={() => setActiveDescription(1)}>
                 <Text className='pl-4'>THÔNG TIN BỔ SUNG</Text>
             </TouchableOpacity>
-            <TouchableOpacity className='bg-gray-200 justify-center' style={[styles.descriptionButton, activeDescription == 2 ? styles.activeButtonBorder : null]} onPress={() => setActiveDescription(2)}>
+            <TouchableOpacity className='justify-center' style={[styles.descriptionButton, activeDescription == 2 ? styles.activeButtonBorder : styles.noneActiveButton, activeDescription - 1 == 2 ? styles.hiddenBotDescription : null]} onPress={() => setActiveDescription(2)}>
                 <Text className='pl-4'>CHÍNH SÁCH TỐT NHẤT</Text>
             </TouchableOpacity>
-            <TouchableOpacity className='bg-gray-200 justify-center' style={[styles.descriptionButton, activeDescription == 3 ? styles.activeButtonBorder : null]} onPress={() => setActiveDescription(3)}>
+            <TouchableOpacity className='justify-center' style={[styles.descriptionButton, activeDescription == 3 ? styles.activeButtonBorder : styles.noneActiveButton, activeDescription - 1 == 3 ? styles.hiddenBotDescription : null]} onPress={() => setActiveDescription(3)}>
                 <Text className='pl-4'>ĐÁNH GIÁ ({product.comments.length})</Text>
             </TouchableOpacity>
             <View className='p-4'>
@@ -145,51 +144,7 @@ const ProductDetailDescription = ({ product }) => {
                 {activeDescription == 3 && (
                     <View>
                         {showComment(product.comments)}
-                        <View className='p4' style={{ borderWidth: 2 }}>
-                            <Text className='font-bold p-4'>
-                                THÊM ĐÁNH GIÁ
-                            </Text>
-                            <Text className='font-bold p-4'>
-                                Đánh giá của bạn *
-                            </Text>
-                            <View className='flex-row ml-4'>
-                                {showRating(0)}
-                            </View>
-                            <Text className='font-bold p-4'>
-                                Nhận xét của bạn *
-                            </Text>
-                            <View className='p2'>
-                                <TextInput
-                                    multiline={true}
-                                    numberOfLines={4}
-                                    className='ml-4'
-                                    placeholder='Bạn có nhận xét gì về sản phẩm?'
-                                    style={{ borderWidth: 1, fontSize: 16, width: '90%', textAlignVertical: 'top' }} />
-                            </View>
-                            <Text className='font-bold p-4'>
-                                Tên *
-                            </Text>
-                            <View className='p2'>
-                                <TextInput
-                                    className='ml-4'
-                                    placeholder='Tên của bạn là ...'
-                                    style={{ borderWidth: 1, fontSize: 16, width: '90%', textAlignVertical: 'top' }} />
-                            </View>
-                            <Text className='font-bold p-4'>
-                                Email *
-                            </Text>
-                            <View className='p2'>
-                                <TextInput
-                                    className='ml-4 mb-4'
-                                    placeholder='Địa chỉ Email của bạn là ...'
-                                    style={{ borderWidth: 1, fontSize: 16, width: '90%', textAlignVertical: 'top' }} />
-                            </View>
-                            <View className='font-bold p-4 mb-8' >
-                                <TouchableOpacity className='justify-center items-center' style={{ backgroundColor: 'black', height: 50, width: '26%' }}>
-                                    <Text className='font-bold text-white'>GỬI ĐI</Text>
-                                </TouchableOpacity>
-                            </View>
-                        </View>
+                        <ProductDetailCommentForm />
                     </View>
                 )}
             </View>
@@ -207,14 +162,20 @@ const styles = StyleSheet.create({
         borderRightWidth: 2,
         borderRightColor: 'gray',
     },
+    noneActiveButton: {
+        backgroundColor: '#F1F1F1'
+    },
     activeButtonBorder: {
-        borderTopColor: '"black"',
+        borderTopColor: 'black',
+        backgroundColor: 'white',
         borderTopWidth: 2
     },
-    // avatar: {
-    //     width: 50,
-    //     heigh: 50,
-    //     borderRadius: 
-    // }
+    topDescription: {
+        borderTopColor: 'gray',
+        borderTopWidth: 2
+    },
+    hiddenBotDescription: {
+        borderBottomWidth: 0
+    }
 })
 export default ProductDetailDescription

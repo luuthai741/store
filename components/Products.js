@@ -1,6 +1,5 @@
 import { View, Text, StyleSheet, ActivityIndicator, FlatList } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { ScrollView } from 'react-native';
 import GeneralCard from './GeneralCard';
 import { TouchableOpacity } from 'react-native';
 
@@ -11,7 +10,7 @@ const Products = ({ products }) => {
             <View className='flex-row flex-wrap p-4 justify-between'>
                 {products.map(product => {
                     return (
-                        <View style={{ width: '47%' }}>
+                        <View className='mb-2' key={product.id} style={{ width: '47%' }}>
                             <GeneralCard key={product.id} data={product} />
                         </View>
                     )

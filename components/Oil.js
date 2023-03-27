@@ -127,7 +127,7 @@ const Oil = () => {
             <Text className='text-center font-bold'>THIẾT BỊ (BỘ DỤNG CỤ)</Text>
             <View className='flex flex-row justify-center items-center space-x-4 p-4'>
                 {oilCategories.map(category => {
-                    return <Node id={category.id} title={category.title} isSelected={isSelectedOil} setIsSelected={setIsSelectedOil} />
+                    return <Node key={category.id} id={category.id} title={category.title} isSelected={isSelectedOil} setIsSelected={setIsSelectedOil} />
                 })}
             </View >
             <View className='flex flex-row p-4'>

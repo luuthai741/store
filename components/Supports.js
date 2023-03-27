@@ -38,7 +38,7 @@ const Supports = () => {
                     supports.map(support => {
                         return (
                             <TouchableOpacity key={support.id} style={styles.underLine}>
-                                <Text className='text-blue-500 text-lg'>
+                                <Text className='text-blue-500' style={{ fontSize: 16 }}>
                                     {support.title}
                                 </Text>
                             </TouchableOpacity>

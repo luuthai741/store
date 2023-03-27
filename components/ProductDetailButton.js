@@ -30,13 +30,13 @@ const ProductDetailButton = ({ colors, productQuantity }) => {
             </View>
             <View className='flex-row  items-center'>
                 <TouchableOpacity disabled={quantity <= 0} className='justify-center items-center' onPress={() => { quantity - 1 < 0 ? null : setQuantity(quantity - 1) }}>
-                    <View className='justify-center items-center p-2 w-10' style={{ borderColor: '#8F8F8F', borderWidth: 1, borderRightWidth: 0 }}>
+                    <View className='justify-center items-center p-2 w-6' style={{ borderColor: '#8F8F8F', borderWidth: 1, borderRightWidth: 0 }}>
                         <Text className='font-bold'>-</Text>
                     </View>
                 </TouchableOpacity>
-                <Text className='py-2 px-4' style={{ borderColor: '#8F8F8F', borderWidth: 1 }}>{quantity}</Text>
+                <Text className='py-2 px-3' style={{ borderColor: '#8F8F8F', borderWidth: 1 }}>{quantity}</Text>
                 <TouchableOpacity disabled={quantity >= productQuantity} className='justify-center items-center' onPress={() => { quantity + 1 > productQuantity ? null : setQuantity(quantity + 1) }}>
-                    <View className='justify-center items-center p-2 w-10' style={{ borderColor: '#8F8F8F', borderWidth: 1, borderLeftWidth: 0 }}>
+                    <View className='justify-center items-center p-2 w-6' style={{ borderColor: '#8F8F8F', borderWidth: 1, borderLeftWidth: 0 }}>
                         <Text className='font-bold'>+</Text>
                     </View>
                 </TouchableOpacity>

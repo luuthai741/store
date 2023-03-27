@@ -18,7 +18,6 @@ const HomeScreen = () => {
             <ScrollView>
                 <Header />
                 <BestChoice />
-                <HotCategories />
                 <Device />
                 <Tank />
                 <Oil />

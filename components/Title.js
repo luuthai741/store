@@ -32,7 +32,7 @@ const sorts = [
         "value": 6
     },
 ]
-const Title = ({ title, sort, setSort }) => {
+const Title = ({ title, setSort }) => {
     const navigation = useNavigation()
     return (
         <View className='justify-center items-center bg-black h-[30vh] w-[100vw] space-y-2'>

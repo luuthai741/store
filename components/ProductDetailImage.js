@@ -13,17 +13,19 @@ const ProductDetailImage = ({ images, discountPercent }) => {
                         <Text className='text-white'>-{discountPercent}%</Text>
                     </View>
                 ) : null}
-                <Image className='w-[90vw] h-40' source={{
+                <Image className='h-48' source={{
                     uri: images[activeImage]
                 }} />
             </View>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                 {images.length > 0 && images.map((image, index) => {
                     return (
-                        <TouchableOpacity onPress={() => { setActiveImage(index) }}>
-                            <Image className='w-[90vw] h-40' source={{
-                                uri: image
-                            }} />
+                        <TouchableOpacity key={index} onPress={() => { setActiveImage(index) }}>
+                            <Image
+                                className='w-32 h-32'
+                                source={{
+                                    uri: image
+                                }} />
                         </TouchableOpacity>
                     )
                 })}

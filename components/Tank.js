@@ -53,7 +53,7 @@ const Tank = () => {
             <Text className='text-center font-bold'>THIẾT BỊ (BỘ DỤNG CỤ)</Text>
             <View className='flex flex-row justify-center items-center space-x-4 p-4'>
                 {tankCategories.map(device => {
-                    return <Node id={device.id} title={device.title} isSelected={isSelectedTank} setIsSelected={setIsSelectedTank} />
+                    return <Node key={device.id} id={device.id} title={device.title} isSelected={isSelectedTank} setIsSelected={setIsSelectedTank} />
                 })}
             </View >
             <View className='flex flex-row p-4'>
